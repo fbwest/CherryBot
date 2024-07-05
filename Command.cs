@@ -5,5 +5,6 @@ public enum Command
     Start,
     Hello,
     Whoami,
-    Idea
+    Idea,
+    Meeting
 }

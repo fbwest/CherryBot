@@ -23,6 +23,8 @@ public class TgBot
         var isDecentCommand = Enum.TryParse<Command>(msg.Text.Split('/').Last(), true, out var command);
         if (!isDecentCommand) return;
 
+        var spanLeft = new DateTime(2024, 7, 19, 21, 0, 0) - DateTime.Now;
+
         var respond = command switch
         {
             Command.Start => "Добро пожаловать в самый лучший тг бот Димы и Миши - CherryBot\ud83c\udf52!",
@@ -33,6 +35,7 @@ public class TgBot
                             У меня в голове крутится что-то связанное с Айзеком, к примеру, взять твои стикеры
                             и сделать что-то типа гайда... Подумай, у тебя должна быть куча идей 💡😍
                             """,
+            Command.Meeting => $"Осталось {spanLeft.Days} дней {spanLeft.Hours} часов {spanLeft.Minutes} минут до встречи! \ud83e\udd17",
             _ => throw new Exception("Wrong command")
         };
         
